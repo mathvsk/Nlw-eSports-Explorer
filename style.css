@@ -7,13 +7,30 @@
 }
 
 header {
+    padding-top: 32px;
+    height: calc(120px + 32px);
+}
+
+header div {
+    width: 120px;
+    margin: auto;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+
+    border-radius: 50%;
+    
+    padding: 4px;
     display: flex;
-    justify-content: center;
+
+    transition: transform .3s;
 }
 
 header img {
-    width: 120px;
     border-radius: 50%;
+    width: 100%;
+}
+
+header div:hover {
+    transform: scale(1.1)
 }
 
 body * {
@@ -57,6 +74,15 @@ section p {
     color: #A1A1AA;
 }
 
+section li {
+    transition: transform .3s;
+}
+
+section ul li:hover {
+    transform: scale(1.1)
+
+}
+
 ul {
     display: flex;
     flex-wrap: wrap;
@@ -65,6 +91,8 @@ ul {
     margin-top: 24px;
 }
 
+
+
 .games-list img {
     width: 90px ;
     border-radius: 8px;
@@ -72,5 +100,53 @@ ul {
 
 .channel-list img {
     border-radius: 50%;
+    border: 1px solid #443E54;
     width: 70px;
+}
+
+/* animation */
+
+@keyframes fromTop {
+    from{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fromBottom {
+    from{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header div {
+    animation: fromTop 1.5s .2s backwards;
+
+}
+
+main section {
+    animation: fromBottom 1.5s backwards;
+}
+
+main section:nth-child(1) {
+    animation-delay: 0 ;
+}
+
+main section:nth-child(2) {
+    animation-delay: .4s ;
+}
+
+main section:nth-child(3) {
+    animation-delay: .8s ;
 }
